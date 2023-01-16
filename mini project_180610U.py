@@ -38,16 +38,6 @@ train_dataset.info(max_cols=191,show_counts=True)
 
 train_dataset.describe()
 
-"""# Categorical and Numerical Features"""
-
-categorical_cols = ['B_30', 'B_38', 'D_114', 'D_116', 'D_117', 'D_120', 'D_126', 'D_63', 'D_64', 'D_66', 'D_68']
-
-num_cols = [col for col in train_dataset.columns if col not in categorical_cols + ["target"]]
-
-print(f'Total number of features: {1}')
-print(f'Total number of categorical features: {len(categorical_cols)}')
-print(f'Total number of continuos features: {len(num_cols)}')
-
 """# Visualizing Target"""
 
 sns.countplot(x = 'target', data = train_dataset)
@@ -96,6 +86,16 @@ Dict = {'Delinquency': len(Delinquency), 'Spend': len(Spend), 'Payment': len(Pay
 
 plt.figure(figsize=(10,5))
 sns.barplot(x=list(Dict.keys()), y=list(Dict.values()));
+
+"""# Categorical and Numerical Features"""
+
+categorical_cols = ['B_30', 'B_38', 'D_114', 'D_116', 'D_117', 'D_120', 'D_126', 'D_63', 'D_64', 'D_66', 'D_68']
+
+num_cols = [col for col in train_dataset.columns if col not in categorical_cols + ["target"]]
+
+print(f'Total number of features: {1}')
+print(f'Total number of categorical features: {len(categorical_cols)}')
+print(f'Total number of continuos features: {len(num_cols)}')
 
 """# Check null values"""
 
